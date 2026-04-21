@@ -7,36 +7,36 @@ function temps() {
 }
 audio.addEventListener("timeupdate", duree);
 function duree() {
-    duration.value =  audio.currentTime;
+    duration.value = audio.currentTime;
 }
 //    cheminplay/pause
-let lecture = false
+
 play.addEventListener("click", changeIconePlay);
 function changeIconePlay() {
 
-    if (lecture == true) {
+    if (audio.paused) {
+        play.innerHTML = '<i class="fa-solid fa-pause"></i>'
 
-        play.innerHTML = '<i class="fa-solid fa-play"></i>'
-        lecture = false;
-        audio.pause()
+
+        audio.play()
     }
     else {
 
-        play.innerHTML = '<i class="fa-solid fa-pause"></i>'
-        lecture = true;
-        audio.play()
+        play.innerHTML = '<i class="fa-solid fa-play"></i>'
+
+        audio.pause()
     }
 }
-duration.addEventListener("change" ,function(){
-     audio.currentTime=duration.value;
+duration.addEventListener("input", function () {
+    audio.currentTime = Number(duration.value);
 
 })
 
-function moveSlider(){
+function moveSlider() {
     duration.value = audio.currentTime;
 }
 
-setInterval(moveSlider,10000);
+
 
 
 
@@ -72,8 +72,18 @@ moins.addEventListener("click", () => {
 
 
 
-// }
-/*let defaultVal = x.defaultValue;
-let currentVal = x.value;
 
-if (slider <= 100)*/
+// audio.play() : lance la lecture (action)
+// audio.pause() : met en pause (action)
+// audio.paused : dit si c’est en pause (true/false) (état)
+
+// audio.duration : durée totale du son (info, ne pas modifier)
+// audio.currentTime : position actuelle (tu peux lire et modifier)
+
+// duration.value (ton slider) : valeur de l’UI
+// duration.max : limite haute du slider
+
+// Événements utiles:
+// loadedmetadata : quand la durée est dispo
+// timeupdate : pendant la lecture (mettre à jour le slider)
+// input (sur slider) : quand l’utilisateur déplace la barre (mettre à jour audio.currentTime)
