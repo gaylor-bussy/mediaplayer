@@ -1,26 +1,44 @@
-let chemin = document.getElementById("play");
+let play = document.getElementById("play");
 let audio = document.getElementById("audio");
+let duration = document.getElementById("duration");
+audio.addEventListener("loadedmetadata", temps);
+function temps() {
+    duration.max = audio.duration
+}
+audio.addEventListener("timeupdate", duree);
+function duree() {
+    duration.value =  audio.currentTime;
+}
 //    cheminplay/pause
 let lecture = false
-chemin.addEventListener("click", changeIconePlay);
+play.addEventListener("click", changeIconePlay);
 function changeIconePlay() {
 
     if (lecture == true) {
-        let valeur = parseInt(audio.value, 0.1);
-        valeur = Math.min(100, valeur + 0.1);
-        audio.value = valeur;
-        chemin.innerHTML = '<i class="fa-solid fa-play"></i>'
+
+        play.innerHTML = '<i class="fa-solid fa-play"></i>'
         lecture = false;
-       audio.pause()
+        audio.pause()
     }
     else {
 
-        chemin.innerHTML = '<i class="fa-solid fa-pause"></i>'
+        play.innerHTML = '<i class="fa-solid fa-pause"></i>'
         lecture = true;
-       
-          audio.play()
+        audio.play()
     }
 }
+duration.addEventListener("change" ,function(){
+     audio.currentTime=duration.value;
+
+})
+
+function moveSlider(){
+    duration.value = audio.currentTime;
+}
+
+setInterval(moveSlider,10000);
+
+
 
 // java volume
 
@@ -53,11 +71,6 @@ moins.addEventListener("click", () => {
 
 
 
-// function playAudio() {
-//     audio.play();
-// }
-// function pauseAudio() {
-//  chemin.pause();
 
 // }
 /*let defaultVal = x.defaultValue;
