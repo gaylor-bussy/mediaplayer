@@ -1,6 +1,6 @@
    let chemin = document.getElementById("play");
    let audio = document.getElementById("piste");
-   
+//    cheminplay/pause
    let  lecture = false
     chemin.addEventListener("click" , changeIconePlay);
 function changeIconePlay(){
@@ -21,7 +21,7 @@ else {
 
 }
 
-
+// java volume
 
 let slider = document.getElementById("vrange");
  
