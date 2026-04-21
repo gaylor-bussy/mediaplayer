@@ -1,24 +1,25 @@
 let chemin = document.getElementById("play");
-let audio = document.getElementById("piste");
+let audio = document.getElementById("audio");
 //    cheminplay/pause
 let lecture = false
 chemin.addEventListener("click", changeIconePlay);
 function changeIconePlay() {
+
     if (lecture == true) {
         let valeur = parseInt(audio.value, 0.1);
         valeur = Math.min(100, valeur + 0.1);
         audio.value = valeur;
-
-
         chemin.innerHTML = '<i class="fa-solid fa-play"></i>'
         lecture = false;
+       audio.pause()
     }
     else {
 
         chemin.innerHTML = '<i class="fa-solid fa-pause"></i>'
         lecture = true;
+       
+          audio.play()
     }
-
 }
 
 // java volume
@@ -52,8 +53,13 @@ moins.addEventListener("click", () => {
 
 
 
+// function playAudio() {
+//     audio.play();
+// }
+// function pauseAudio() {
+//  chemin.pause();
 
-
+// }
 /*let defaultVal = x.defaultValue;
 let currentVal = x.value;
 
