@@ -1,3 +1,5 @@
+//    play/pause
+
 let play = document.getElementById("play");
 let audio = document.getElementById("audio");
 let duration = document.getElementById("duration");
@@ -10,7 +12,7 @@ audio.addEventListener("timeupdate", duree);
 function duree() {
     duration.value = audio.currentTime;
 }
-//    cheminplay/pause
+
 
 play.addEventListener("click", changeIconePlay);
 function changeIconePlay() {
@@ -44,31 +46,55 @@ function moveSlider() {
 // java volume
 
 let slider = document.getElementById("vrange");
-
 const plus = document.getElementById("plus")
 const moins = document.getElementById("moins")
+
+let volume = parseInt(slider.value);
 
 
 
 
 plus.addEventListener("click", () => {
-    let valeur = parseInt(slider.value, 10);
-    valeur = Math.min(100, valeur + 10);
+
+
+    volume = Math.min(100, volume + 10);
+    audio.volume =audio.volume+0.1
     console.log(slider.value);
 
 
-    slider.value = valeur;
+    slider.value = volume;
 
 });
 moins.addEventListener("click", () => {
-    let valeur = parseInt(slider.value, 10);
-    valeur = Math.max(0, valeur - 10);
+
+    volume = Math.max(0, volume - 10);
+    audio.volume =audio.volume-0.1
     console.log(slider.value);
 
 
-    slider.value = valeur;
+    slider.value = volume;
 
 });
+
+slider.addEventListener("input", function () {
+  audio.volume  = (slider.value/100);
+
+})
+
+function moveSlider() {
+    slider.value= audio.volume ;
+}
+// duration.addEventListener("input", function () {
+//     audio.currentTime = Number(duration.value);
+
+// })
+
+// function moveSlider() {
+//     duration.value = audio.currentTime;
+// }
+
+
+// suivant/précédant
 
 let playlist = ["musique/konten_kreator-vanguard-of-the-eternal-storm-464951.mp3", "musique/nra-lab-stomps-time-stomper-239522.mp3", "musique/denys_brodovskyi-sandbreaker-379630.mp3"];
 let playIndex = 0;
@@ -84,21 +110,21 @@ const precedent = document.getElementById("précédent")
 
 
 suivant.addEventListener("click", function () {
-        if( playIndex==playlist.length-1){
+    if (playIndex == playlist.length - 1) {
         playIndex = -1;
-     }
+    }
     playIndex++;
     audio.src = playlist[playIndex];
 }
 )
 precedent.addEventListener("click", function () {
-     if( playIndex==0){
+    if (playIndex == 0) {
         playIndex = playlist.length;
-     }
+    }
     playIndex--;
     audio.src = playlist[playIndex];
-   
-    
+
+
 })
 
 
