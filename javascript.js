@@ -124,9 +124,13 @@ audio.addEventListener("ended", function () {
 }
 );
 
-
-
-
+// random
+const random = document.getElementById("random")
+random.addEventListener("click", function () {
+    playIndex= Math.floor(Math.random()*3)+0;
+audio.src = playlist[playIndex];
+console.log(playIndex)
+});
 
 // audio.play() : lance la lecture (action)
 // audio.pause() : met en pause (action)
