@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="style.css" rel="stylesheet">
     <audio id="audio" controls></audio>
 
     <title>Document</title>
@@ -14,14 +15,37 @@
 
 <body>
 
-    <button id="play" type="button"><i class="fa-solid fa-play"></i></button>
-    <input type="range" id="duration" min="0" value="0">
-    <button id="moins"><i class="fa-solid fa-volume-low"></i></button>
-    <input type="range" id="vrange" min="0" max="100" value="100">
-    <button id="plus"><i class="fa-solid fa-volume-high"></i></button>
-    <button id="précédent" type="button"><i class="fa-solid fa-angles-left"></i></button>
-    <button id="suivant" type="button"><i class="fa-solid fa-angles-right"></i></button>
-    <button id="random" type="button"><i class="fa-solid fa-shuffle"></i></button>
+
+    <section>
+        <button id="play" type="button"><i class="fa-solid fa-play"></i></button>
+        <input type="range" id="duration" min="0" value="0">
+        <button id="moins"><i class="fa-solid fa-volume-low"></i></button>
+        <input type="range" id="vrange" min="0" max="100" value="100">
+        <button id="plus"><i class="fa-solid fa-volume-high"></i></button>
+        <button id="précédent" type="button"><i class="fa-solid fa-angles-left"></i></button>
+        <button id="suivant" type="button"><i class="fa-solid fa-angles-right"></i></button>
+        <button id="random" type="button"><i class="fa-solid fa-shuffle"></i></button>
+    </section>
+
+
+
+    <section class="album">
+        <article id="img1"><img src="image/Capture d’écran_22-4-2026_144455_pixabay.com.jpeg">
+            <h1 id="titre1">Vanguard of the Eternal Storm Konten_kreator </h1>
+        </article>
+        <article id="img2"><img src="image/14-04-09-836_200x200.jpg">
+            <h1 id="titre2"> Stomps (Time Stomper)NRA-LAB </h1>
+        </article>
+        <article id="img3"><img src="image/10-14-22-313_200x200.webp">
+            <h1 id="titre3"> Sandbreaker Denys_Brodovskyi </h1>
+        </article>
+    </section>
+
+
+
+
+
+
 
 
     <script src="javascript.js"></script>
