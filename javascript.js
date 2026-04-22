@@ -1,6 +1,7 @@
 let play = document.getElementById("play");
 let audio = document.getElementById("audio");
 let duration = document.getElementById("duration");
+
 audio.addEventListener("loadedmetadata", temps);
 function temps() {
     duration.max = audio.duration
@@ -68,6 +69,30 @@ moins.addEventListener("click", () => {
     slider.value = valeur;
 
 });
+
+let playlist = ["musique/konten_kreator-vanguard-of-the-eternal-storm-464951.mp3", "musique/nra-lab-stomps-time-stomper-239522.mp3", "musique/denys_brodovskyi-sandbreaker-379630.mp3"];
+let playIndex = 0;
+
+audio.src = playlist[playIndex];
+
+
+
+const suivant = document.getElementById("suivant")
+const precedent = document.getElementById("précédent")
+
+
+
+
+suivant.addEventListener("click", function () {
+    playIndex++;
+    audio.src = playlist[playIndex];
+}
+)
+precedent.addEventListener("click", function () {
+    playIndex--;
+    audio.src = playlist[playIndex];
+})
+
 
 
 
