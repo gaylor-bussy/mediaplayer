@@ -84,13 +84,21 @@ const precedent = document.getElementById("précédent")
 
 
 suivant.addEventListener("click", function () {
+        if( playIndex==playlist.length-1){
+        playIndex = -1;
+     }
     playIndex++;
     audio.src = playlist[playIndex];
 }
 )
 precedent.addEventListener("click", function () {
+     if( playIndex==0){
+        playIndex = playlist.length;
+     }
     playIndex--;
     audio.src = playlist[playIndex];
+   
+    
 })
 
 
