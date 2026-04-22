@@ -84,17 +84,7 @@ slider.addEventListener("input", function () {
 function moveSlider() {
     slider.value= audio.volume ;
 }
-// duration.addEventListener("input", function () {
-//     audio.currentTime = Number(duration.value);
 
-// })
-
-// function moveSlider() {
-//     duration.value = audio.currentTime;
-// }
-
-
-// suivant/précédant
 
 let playlist = ["musique/konten_kreator-vanguard-of-the-eternal-storm-464951.mp3", "musique/nra-lab-stomps-time-stomper-239522.mp3", "musique/denys_brodovskyi-sandbreaker-379630.mp3"];
 let playIndex = 0;
