@@ -58,7 +58,7 @@ plus.addEventListener("click", () => {
 
 
     volume = Math.min(100, volume + 10);
-    audio.volume =audio.volume+0.1
+    audio.volume = audio.volume + 0.1
     console.log(slider.value);
 
 
@@ -68,7 +68,7 @@ plus.addEventListener("click", () => {
 moins.addEventListener("click", () => {
 
     volume = Math.max(0, volume - 10);
-    audio.volume =audio.volume-0.1
+    audio.volume = audio.volume - 0.1
     console.log(slider.value);
 
 
@@ -77,14 +77,14 @@ moins.addEventListener("click", () => {
 });
 
 slider.addEventListener("input", function () {
-  audio.volume  = (slider.value/100);
+    audio.volume = (slider.value / 100);
 
 })
 
 function moveSlider() {
-    slider.value= audio.volume ;
+    slider.value = audio.volume;
 }
-
+// suivant /précédent
 
 let playlist = ["musique/konten_kreator-vanguard-of-the-eternal-storm-464951.mp3", "musique/nra-lab-stomps-time-stomper-239522.mp3", "musique/denys_brodovskyi-sandbreaker-379630.mp3"];
 let playIndex = 0;
@@ -92,11 +92,8 @@ let playIndex = 0;
 audio.src = playlist[playIndex];
 
 
-
 const suivant = document.getElementById("suivant")
 const precedent = document.getElementById("précédent")
-
-
 
 
 suivant.addEventListener("click", function () {
@@ -116,7 +113,16 @@ precedent.addEventListener("click", function () {
 
 
 })
-
+// fin piste
+audio.addEventListener("ended", function () {
+    if (playIndex == playlist.length - 1) {
+        playIndex = -1;
+    }
+    playIndex++;
+    audio.src = playlist[playIndex];
+    audio.play()
+}
+);
 
 
 
